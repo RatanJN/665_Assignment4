@@ -1,38 +1,44 @@
 /**
- * Name: FIRST_NAME LAST_NAME
+ * Name: Ratan Jagath Naik
  * Course: CS-665 Software Designs & Patterns
- * Date: MM/DD/YYYY
+ * Date: 03/20/2024
  * File Name: Main.java
- * Description: Write a description for this class
+ * Description: Demonstrates the use of the adapter pattern for customer data systems.
  */
 
 package edu.bu.met.cs665;
 
-import edu.bu.met.cs665.example1.Person;
+// Import adapter and mock classes for demonstration
+import edu.bu.met.cs665.adapters.CustomerDataAdapter;
+import edu.bu.met.cs665.adapters.MockCustomerDataUsb;
+// Import interfaces for USB and HTTPS data handling
+import edu.bu.met.cs665.interfaces.CustomerDataHttps;
+import edu.bu.met.cs665.interfaces.CustomerDataUsb;
 
 /**
- * This is the Main class.
+ * The Main class demonstrates the integration of legacy USB data retrieval with the new HTTPS
+ * interface.
  */
 public class Main {
 
   /**
-   * A main method to run examples.
-   * You may use this method for development purposes as you start building your
-   * assignments/final project.  This could prove convenient to test as you are developing.
-   * However, please note that every assignment/final projects requires JUnit tests.
+   * The main method serves as the entry point of the program to demonstrate the adapter usage.
    */
   public static void main(String[] args) {
-    System.out.println("This is a test message from the Main class (Main.java file)");
-  }
+    // Instantiate the mock USB system to simulate legacy operations
+    CustomerDataUsb legacySystem = new MockCustomerDataUsb();
 
-  /**
-   * This method performs XYZ and returns String.
-   *
-   * @return String
-   */
-  private String doIt() {
-    Person student = new Person("John", "Doe");
-    return student.getLastName() + ',' + student.getFirstName();
-  }
+    // Create the adapter to conform the USB system to the HTTPS interface
+    CustomerDataHttps adapter = new CustomerDataAdapter(legacySystem);
 
+    // Example scenario: print customer info using the new interface over legacy USB system
+    System.out.println("Scenario 1: Print customer using the new system's interface");
+    adapter.printCustomer(1);
+
+    // Example scenario: retrieve customer data using the new HTTPS interface method
+    System.out.println("\nScenario 2: Get customer data using the new system's interface");
+    adapter.getCustomerHttps(2);
+
+    // Additional scenarios can be implemented to showcase other functionalities
+  }
 }

@@ -2,15 +2,16 @@
 | CS-665       | Software Design & Patterns |
 |--------------|----------------------------|
 | Name         | Ratan Jagath Naik          |
-| Date         | 11/05/1997                 |
+| Date         | 03/19/2024                 |
 | Course       | Spring 2024                |
-| Assignment # | 2                          |
+| Assignment # | 4                          |
 
 # Assignment Overview
-Please add a paragraph or two overviewing the objectives of the assignment.
+
+The core objective of this assignment is to leverage the Adapter Design Pattern to ensure seamless integration between a legacy USB-based customer data retrieval system and a newer HTTPS-based interface. My approach involves crafting an adapter that serves as a bridge, facilitating communication and data access between the disparate systems without altering their existing implementations. Through this exercise, I aim to demonstrate my proficiency in applying design patterns to solve real-world software architecture challenges, focusing on compatibility and future-proofing. By implementing targeted unit tests, I also validate the effectiveness and robustness of my solution, ensuring the adapter not only accurately delegates method calls but also adheres to the principles of good software design.
 
 # GitHub Repository Link:
-https://github.com/RatanJN/665_Assignment2.git
+https://github.com/RatanJN/665_Assignment4.git
 
 # Implementation Description 
 
@@ -19,11 +20,22 @@ For each assignment, please answer the following:
 
 - Explain the level of flexibility in your implementation, including how new object types can
 be easily added or removed in the future.
+
+Ans: My implementation of the Adapter Design Pattern inherently offers high flexibility. By abstracting the interface between the new HTTPS system and the legacy USB system, adding or removing new object types becomes straightforward. Future adaptations—whether to integrate additional legacy systems or to extend the system's capabilities with new data sources—require minimal changes. New adapters can be introduced without altering the existing client code or the underlying systems, showcasing the implementation's scalability and adaptability.
+
 - Discuss the simplicity and understandability of your implementation, ensuring that it is
 easy for others to read and maintain.
+
+Ans: The simplicity of the design lies in its adherence to the Single Responsibility Principle. Each component—be it an adapter, the new system interface, or the legacy system—has a clear, well-defined role. This separation of concerns not only makes the codebase easier to understand but also facilitates easier maintenance. By documenting the purpose and functionality of each component and using meaningful naming conventions, I've ensured that the implementation is accessible and straightforward for other developers.
+
 - Describe how you have avoided duplicated code and why it is important.
+
+Ans:Duplicated code has been meticulously avoided through the strategic use of the Adapter Pattern. Instead of replicating logic to accommodate the interaction between the new and legacy systems, a single adapter encapsulates the necessary conversions and mappings. This approach not only reduces the codebase's complexity but also minimizes the risk of inconsistencies and bugs, making the system more reliable and easier to update. Avoiding duplication is crucial for maintaining code quality and efficiency, ensuring that any changes or bug fixes are centralized and thus more manageable.
+
 - If applicable, mention any design patterns you have used and explain why they were
 chosen.
+
+Ans: The Adapter Design Pattern was chosen for its ability to reconcile differences between incompatible interfaces, allowing them to communicate without direct modifications. This pattern was ideal for integrating the modern HTTPS interface with the legacy USB system, providing a unified access point for client code. The choice of this pattern was driven by its potential to enhance system compatibility and extensibility, enabling seamless integration of disparate systems with minimal impact on existing codebases.
 
 
 # Maven Commands
